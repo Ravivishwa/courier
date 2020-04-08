@@ -7,7 +7,7 @@ require_once('database.php');
 require_once('funciones.php');
 function verify_users($user,$pwd, $estado) {	
 		
-			$sql = "SELECT *	FROM manager_admin WHERE name = '$user' AND pwd = '$pwd' AND estado = '1'";
+			$sql = "SELECT *	FROM manager_admin WHERE email = '$user' AND pwd = '$pwd' AND estado = '1'";
 			$result = dbQuery($sql);		
 			$no = dbNumRows($result);		
 			if($no >= 1) {
@@ -19,7 +19,7 @@ function verify_users($user,$pwd, $estado) {
 					echo '<meta http-equiv="refresh"  content="2;url=deprixa/admin.php">';
 					
 			} else {				
-			$sql = "SELECT name_parson	FROM manager_user WHERE name = '$user' AND pwd = '$pwd' AND estado = '1'";
+			$sql = "SELECT name_parson	FROM manager_user WHERE email = '$user' AND pwd = '$pwd' AND estado = '1'";
 			$result = dbQuery($sql);		
 			$no = dbNumRows($result);		
 			if($no >= 1) {
